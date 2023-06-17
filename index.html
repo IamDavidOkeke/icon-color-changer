@@ -1,0 +1,48 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel ='stylesheet' href="./src/main.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="align">
+            created by <a href="https://iamdavidokeke.github.io">David Okeke</a>
+        </header>
+        <main class="align">
+            <h1> Select Icon and Color(RGB)</h1>
+            <form id="form">
+                <ul>
+                <li>
+                    <label for ='fileinput' class ='fileinputlabel'></label>
+                    <input id="fileinput" name='fileinput'class ='fileinput' type="file" accept="image/*" required/>
+                </li>
+                <li>
+                    <label for ='red'>Red:</label>
+                    <input name='red' class ='color-input red' type="number"  required min='0' max='255' placeholder="0-255"/>
+                </li>
+                <li>
+                    <label for ='green'>Green:</label>
+                    <input name='green'class ='color-input green' type="number"  required min='0' max='255'placeholder="0-255"/>
+                </li>
+                <li>
+                    <label for ='blue'>Blue:</label>
+                    <input name='blue' class ='color-input blue' type="number"  required min='0' max='255' placeholder="0-255"/>
+                </li>
+                <li>
+                    <input class = 'download'type ='submit' />
+                </li>
+                </ul>
+            </form>
+            <div class='canvas'><canvas id ='canvas'></canvas></div>
+            <p><a  id ='download' class = 'download inactive' download>Download Icon</a></p>
+        </main>
+        <footer class="align">
+            created with love by <a href="https://iamdavidokeke.github.io">David Okeke</a>
+        </footer>
+        <script text="javascript" src="./src/app.js" >
+        </script>
+    </body>
+</html>
