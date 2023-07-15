@@ -19,7 +19,6 @@ main{
     padding-top: 2em; 
 }
 header, footer {
-    flex-grow: 0;
     padding: .5em;
 }
 main >*{
@@ -53,4 +52,22 @@ li{
 }
 .inactive{
     background-color: hsla(214, 0%, 58%, 1); 
+}
+.color_select{
+    height: 5em;
+}
+.border_bottom_none{
+    border-bottom: none;
+}
+.border_top_none{
+    border-top: none ;
+}
+.switch_button{
+    margin-bottom: 3em;
+    width: 50%;
+    color: white;
+    background-color: hsla(214, 83%, 58%, 1); 
+    padding: .8em;
+    border: none;
+    outline: none;
 }

@@ -5,6 +5,7 @@ class ColorChanger {
         this.anchor = document.querySelector(anchorID)
         this.canvas = document.querySelector(canvasID)
         this.context = this.canvas.getContext('2d')
+        this.imageName = ''
         this.__init__()
     }
 
@@ -16,6 +17,7 @@ class ColorChanger {
 
     fileInputHandler = (e)=>{
         if(e.target.files[0]){
+            this.imageName = e.target.files[0].name
             let reader = new FileReader()
             reader.readAsDataURL(e.target.files[0])
             reader.onload = (e)=>{
@@ -32,13 +34,21 @@ class ColorChanger {
 
     formHandler = (e)=>{
         e.preventDefault()
+        let select = document.querySelector('.color_select')
         let inputs = document.querySelectorAll('.color-input')
-        let arrInputs = Array.from(inputs)
         let color = {}
-        for (var input of arrInputs){
-            color[input.name] = input.value
+        if(select){
+            let value = select.value
+            color.red = parseInt(value.substring(1,3), 16)
+            color.green = parseInt(value.substring(3,5), 16)
+            color.blue = parseInt(value.substring(5), 16)
+        }else{
+            let arrInputs = Array.from(inputs)
+            for (var input of arrInputs){
+                color[input.name] = input.value
+            }
         }
-
+        console.log(color)
         let data = this.getImageData()
         console.log('data', data)
         for(let i = 0; i < data.data.length; i+=4){
@@ -63,6 +73,7 @@ class ColorChanger {
     setAnchor = ()=>{
         this.anchor.href = this.canvas.toDataURL()
         this.anchor.classList.remove('inactive')
+        this.anchor.download = 'modified_'+ this.imageName 
     }
 }
 
